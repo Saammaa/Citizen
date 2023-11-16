@@ -1,0 +1,215 @@
+.p-header,
+.p-header--inner {
+	flex-direction: var(--header-direction);
+	gap: var(--space-xxs);
+}
+
+.p-header {
+	--header-icon-size: calc(var(--header-button-size) / 2);
+	--header-button-size: calc(var(--header-size) - var(--space-xs) * 2);
+	--header-direction: row;
+
+	position: fixed;
+	z-index: 91;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	padding: var(--space-xs);
+	border-top: 1px solid var(--border-color-base);
+	background-color: var(--color-surface-0);
+	box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.3);
+}
+
+.p-header--logo {
+	padding: 0 var(--space-xs) 0 0;
+	border-right: 1px solid var(--border-color-base);
+	margin: 0 var(--space-xxs);
+}
+
+.p-header--logo img {
+	margin: auto;
+}
+
+.p-header--item {
+	display: flex;
+	align-items: center;
+}
+
+.p-menu-checkbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
+	opacity: 0;
+	z-index: 1;
+}
+
+.bar-loader,
+.p-header--buttonIcon {
+	filter: var(--filter-invert);
+	opacity: var(--opacity-icon-base);
+}
+
+.p-header--button {
+	display: grid;
+	width: var(--header-button-size);
+	height: var(--header-button-size);
+	contain: strict;
+	place-items: center;
+	transition: var(--transition-hover);
+	transition-property: background;
+	justify-content: center;
+}
+
+.p-header--button:hover {
+	background-color: var(--background-color-quiet--hover);
+}
+
+.p-header--buttonIcon {
+	transition: var(--transition-hover);
+	transition-property: transform, opacity;
+	overflow: hidden;
+	width: var(--header-icon-size);
+	height: var(--header-icon-size);
+	contain: strict;
+}
+
+.p-header--button .ui-icon,
+.p-header--buttonIcon {
+	margin: auto;
+}
+
+.p-menu-checkbox-button {
+	cursor: pointer;
+}
+
+.p-menu-checkbox-button > span:not(.ui-icon) {
+	display: block;
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.p-menu .list-item a,
+.p-menu--heading {
+	padding: var(--space-xs) var(--space-md);
+}
+
+.p-header--buttonCheckbox {
+	position: absolute;
+	display: block;
+	width: inherit;
+	height: inherit;
+	contain: strict;
+}
+
+.logo-wordMark {
+	font-weight: var(--font-weight-semibold);
+}
+
+.p-menu--heading {
+	display: block;
+	margin: 0;
+	color: var(--color-base--subtle);
+	font-size: inherit;
+	font-weight: var(--font-weight-normal);
+	letter-spacing: 0.05em;
+}
+
+.p-header ul {
+	margin: 0;
+	list-style: none;
+}
+
+.p-menu .list-item {
+	line-height: var(--line-height-xs);
+}
+
+.p-menu .list-item a {
+	display: flex;
+	align-items: center;
+	color: var(--color-base);
+	font-weight: var(--font-weight-medium);
+	gap: var(--space-sm);
+	transition: var(--transition-hover);
+	transition-property: background, color, opacity;
+}
+
+.p-menu .list-item a:hover {
+	text-decoration: none;
+	background-color: var(--background-color-primary--hover);
+	color: var(--color-base--emphasized);
+}
+
+.p-header--inner {
+	z-index: -1;
+	display: flex;
+	min-width: 0;
+	flex-grow: 1;
+	justify-content: space-between;
+}
+
+.p-header--end,
+.p-header--start {
+	display: flex;
+	flex-direction: var(--header-direction);
+	gap: var(--space-xxs);
+}
+
+.p-header--start {
+	min-width: 0;
+	align-items: center;
+}
+
+.bar-loader {
+	display: none;
+	color: var(--color-base);
+	width: 24px;
+	height: 24px;
+	text-indent: -9999em;
+	position: relative;
+	margin: 10px auto;
+	-webkit-animation-delay: -0.16s;
+	animation: 0.8s ease-in-out infinite loadRotate;
+
+	/* 可通过修改此处 SVG 变更加载动画指示器样式 */
+	background: url("https://registry.npmmirror.com/seamworks-statics/latest/files/icons/spinner/switcher.svg")
+	center no-repeat;
+}
+
+@keyframes loadRotate {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.p-header {
+		--header-direction: column;
+
+		top: 0;
+		right: unset;
+		left: 0;
+		border-top: 0;
+		border-right: 1px solid var(--border-color-base);
+	}
+
+	.p-header--logo {
+		padding: 0 0 var(--space-xs) 0;
+		border-right: 0;
+		border-bottom: 1px solid var(--border-color-base);
+		margin: var(--space-xxs) 0;
+	}
+}

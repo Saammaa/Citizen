@@ -1,0 +1,148 @@
+.oo-ui-iconWidget,
+.oo-ui-buttonElement-button {
+	display: inline-block;
+	user-select: none;
+	vertical-align: middle;
+}
+
+.oo-ui-widget {
+	font-size: 0.875rem;
+}
+
+.oo-ui-iconWidget {
+	clip: auto;
+	margin: 0;
+	text-indent: -9999px;
+	line-height: 2.5;
+	position: static;
+	top: auto;
+	height: 1.42857143em;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.oo-ui-inputWidget-input {
+	box-shadow: inset 0 0 0 1px transparent;
+	transition: border-color 250ms, box-shadow 250ms, background-color 160ms;
+}
+
+.oo-ui-inputWidget-input:hover {
+	border-color: var(--color-primary--hover);
+	background-color: var(--color-surface-0);
+}
+
+.oo-ui-inputWidget-input:focus {
+	outline: transparent solid 1px;
+	border-color: var(--color-primary);
+	box-shadow: inset 0 0 0 1px var(--color-primary);
+}
+
+.oo-ui-textInputWidget input {
+	height: 2.25em;
+	cursor: text;
+}
+
+.oo-ui-textInputWidget .oo-ui-inputWidget-input {
+	margin: 0;
+	padding: 5px 8px;
+	font-family: inherit;
+	line-height: 1.42857143em;
+}
+
+.oo-ui-buttonElement-button {
+	cursor: pointer;
+	font-size: 0.875rem;
+	font-family: inherit;
+	font-weight: var(--font-weight-medium);
+	white-space: nowrap;
+	position: relative;
+	line-height: var(--line-height);
+	min-height: 32px;
+	border-radius: 2px;
+	text-decoration: none;
+	transition: background-color 0.1s, color 0.1s, border-color 0.1s,
+	box-shadow 0.1s;
+}
+
+.oo-ui-fieldLayout-body {
+	display: table;
+	width: 100%;
+	max-width: 50em;
+}
+
+.oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field {
+	width: fit-content;
+	display: flex;
+	vertical-align: middle;
+	align-items: center;
+	column-gap: 0.5rem;
+	margin: 0.75rem 0;
+}
+
+.oo-ui-fieldLayout-header {
+	font-size: 0.875em;
+	margin-bottom: 2px;
+}
+
+.oo-ui-checkboxInputWidget {
+	display: inline-block;
+	z-index: 0;
+	position: relative;
+	line-height: 1.42857143em;
+	white-space: nowrap;
+}
+
+.oo-ui-checkboxInputWidget [type="checkbox"] {
+	position: relative;
+	max-width: none;
+	width: 1.42857143em;
+	height: 1.42857143em;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.oo-ui-checkboxInputWidget * {
+	font: inherit;
+	vertical-align: middle;
+}
+
+.oo-ui-checkboxInputWidget [type="checkbox"] + span {
+	background-size: 1em 1em;
+	background-color: transparent;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	width: 1.42857143em;
+	height: 1.42857143em;
+	border-color: var(--border-color-base--darker);
+	border-style: solid;
+	border-radius: 2px;
+	border-width: 1px;
+	cursor: pointer;
+	padding: 0;
+	overflow: hidden;
+	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
+}
+
+.oo-ui-checkboxInputWidget [type="checkbox"]:checked + span {
+	border-color: var(--color-primary);
+	background-color: var(--color-primary);
+}
+
+.oo-ui-checkboxInputWidget [type="checkbox"]:focus + span {
+	border-color: var(--color-primary);
+	background-color: var(--color-surface-0);
+	box-shadow: inset 0 0 0 1px var(--color-primary);
+}
+
+.oo-ui-checkboxInputWidget [type="checkbox"]:checked:focus + span {
+	border-color: var(--color-primary);
+	background-color: var(--color-primary);
+	box-shadow: inset 0 0 0 1px var(--color-primary), inset 0 0 0 2px #fff;
+}
+
+.oo-ui-icon-check {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E%3Ctitle%3E check %3C/title%3E%3Cg fill=%22%23fff%22%3E%3Cpath d=%22M7 14.2 2.8 10l-1.4 1.4L7 17 19 5l-1.4-1.4z%22/%3E%3C/g%3E%3C/svg%3E");
+}

@@ -1,0 +1,133 @@
+.p-toc {
+	font-size: 0.875rem;
+	line-height: var(--line-height-xs);
+}
+
+.citizen-toc--card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+.citizen-toc--header {
+	color: var(--color-base--subtle);
+	letter-spacing: 0.05em;
+	padding-left: var(--space-xs);
+}
+
+#citizen-toc--buttonCheckbox {
+	visibility: hidden;
+}
+
+.toc-list {
+	padding: 0;
+	list-style: none;
+}
+
+.toc-link {
+	display: block;
+	height: auto !important;
+	padding: var(--space-xs);
+	border-radius: var(--border-radius--small);
+	transition: var(--transition-hover);
+	transition-property: background, color;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.toc-link:hover {
+	background-color: var(--background-color-quiet--hover);
+}
+
+.toc-link.is-active {
+	color: var(--color-primary);
+}
+
+@media screen and (min-width: 1000px) {
+	.citizen-toc--card {
+		--toc-margin-top: 3rem;
+
+		position: sticky;
+		top: var(--toc-margin-top);
+		max-height: calc(100vh - var(--toc-margin-top) - var(--space-md));
+		overflow-y: auto;
+		overscroll-behavior: contain;
+	}
+}
+
+@media screen and (max-width: 999px) {
+	.citizen-toc--card,
+	#citizen-toc--buttonCheckbox {
+		margin: var(--space-xs);
+		background-color: var(--color-surface-1);
+		box-shadow: var(--box-shadow-dialog);
+		transition: var(--transition-menu);
+	}
+
+	.p-toc {
+		right: 0;
+		font-size: 0.875rem;
+		position: fixed;
+		z-index: 11;
+		bottom: calc(var(--header-size) + var(--space-xs));
+		pointer-events: none;
+	}
+
+	#citizen-toc--buttonCheckbox {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		display: grid;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: var(--border-radius--medium);
+		place-content: center;
+		pointer-events: auto;
+		visibility: visible;
+		transform: none;
+		transform-origin: bottom right;
+		transition-property: transform;
+	}
+
+	#citizen-toc--buttonCheckbox:hover {
+		background-color: var(--color-surface-3);
+	}
+
+	#citizen-toc--buttonCheckbox .ui-icon {
+		width: 1rem;
+		height: 1rem;
+	}
+
+	.citizen-toc--card {
+		overflow: auto;
+		max-height: calc(var(--header-card-maxheight) - 8rem);
+		padding: var(--space-md);
+		overscroll-behavior: contain;
+		-webkit-user-select: none;
+		user-select: none;
+		border: 1px solid var(--border-color-base);
+		border-radius: var(--border-radius--medium);
+		opacity: 0;
+		pointer-events: none;
+		transform: translateX(10px);
+		visibility: hidden;
+		transition-property: transform, opacity, visibility;
+		will-change: transform, opacity, visibility;
+	}
+
+	#citizen-toc--checkbox:checked ~ .citizen-toc--card {
+		opacity: 1;
+		pointer-events: auto;
+		transform: none;
+		transition-delay: 0s;
+		visibility: visible;
+	}
+
+	#citizen-toc--checkbox:checked ~ #citizen-toc--buttonCheckbox {
+		background-color: transparent;
+		box-shadow: none;
+		pointer-events: none;
+		transform: scale(1.2);
+	}
+}

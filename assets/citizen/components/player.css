@@ -1,0 +1,149 @@
+.p-player,
+.p-player--album {
+	position: relative;
+	overflow: hidden;
+}
+
+.p-player,
+.p-player--actions button {
+	background-color: var(--playerTheme);
+}
+
+.p-player--actions .material-icons {
+	font-size: 1.5em;
+}
+
+#p-player--checkbox:checked ~ .p-player--entry {
+	background-color: var(--background-color-quiet--hover);
+}
+
+.p-player--card {
+	padding: 0;
+	border: none;
+	border-radius: 16px;
+	width: fit-content;
+}
+
+.p-player {
+	--playerTheme: hsl(220, 20%, 10%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.p-player--album {
+	height: 12em;
+	background-color: var(--color-surface-3);
+}
+
+.p-player--album img {
+	width: 100%;
+	height: auto;
+}
+
+.p-player--info {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: linear-gradient(0deg, var(--playerTheme) 25%, transparent 100%);
+	padding: 20px 10px 15px;
+}
+
+#songName,
+#songArtist {
+	color: white;
+}
+
+#songName {
+	font-size: 26px;
+}
+
+#songArtist {
+	font-size: 12px;
+	overflow-x: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 95%;
+}
+
+.p-player--actions {
+	position: relative;
+	width: 100%;
+	padding: var(--space-md) 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 可视化实时频谱 */
+.p-player--canvas {
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	/* 低透明度以欺骗大家的眼睛让他们以为这玩意好像是垫在正文内容下方其实不然 */
+	opacity: 0.035;
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	max-width: 100%;
+	pointer-events: none;
+}
+
+.skin-dark .p-player--canvas {
+	filter: var(--filter-invert);
+	-webkit-filter: var(--filter-invert);
+}
+
+.p-player--actions button {
+	appearance: none;
+	outline: 0;
+	position: relative;
+	width: 20%;
+	height: 2.5em;
+	padding: 0;
+	font-size: 100%;
+	border: none;
+	cursor: pointer;
+	transition: background-color var(--transition-hover);
+}
+
+.p-player--actions button:hover {
+	background-color: #54595d;
+}
+
+.p-player--actions button .material-icons {
+	color: white;
+	margin: 0 auto;
+	transition: color 80ms linear;
+}
+
+.p-player--actions .is-active .material-icons {
+	color: #0d95e8;
+}
+
+@keyframes fadeInOut {
+	0%,
+	100%	{ opacity: 1 }
+	50%		{ opacity: 0 }
+}
+
+/* 令控件在音乐加载时闪烁 */
+#playPause.is-loading {
+	animation: 1.2s ease-in-out infinite fadeInOut;
+}
+
+/* 播放器指示器 */
+
+.player-indicator {
+	display: none;
+	position: fixed;
+	top: 0;
+	margin: var(--space-sm);
+	width: 100px;
+	height: 100px;
+	box-shadow: var(--box-shadow-dialog);
+	z-index: 2;
+}
+
+.player-indicator img {
+	width: 100%;
+}

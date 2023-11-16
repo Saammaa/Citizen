@@ -1,0 +1,122 @@
+/* 页面布局 */
+
+.p-body-container {
+	display: grid;
+	justify-content: center;
+	padding: 0 var(--padding-page);
+	margin: var(--space-xl) 0;
+	gap: var(--space-md) var(--space-xl);
+	min-height: 65vh;
+	grid-template-areas:
+			"header"
+			"content"
+			"footer"
+			"comment";
+	grid-template-columns: minmax(0, var(--width-layout));
+	background: transparent;
+}
+
+.p-category-header ~ .p-grid {
+	margin-top: var(--space-md);
+}
+
+.p-body-container:has(.p-cover) {
+	margin-top: 16.75rem;
+}
+
+.p-cover ~ .p-content {
+	margin-top: var(--space-xs);
+}
+
+.p-body-container:has(.p-cover) .p-toc {
+	margin-top: 8rem;
+}
+
+.p-content {
+	grid-area: content;
+	line-height: var(--line-height);
+}
+
+.p-body-footer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xl);
+	grid-area: footer;
+	line-height: var(--line-height-sm);
+}
+
+.p-comment {
+	grid-area: comment;
+	margin-top: var(--space-lg);
+}
+
+.p-grid {
+	display: grid;
+	grid-area: content;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: var(--space-xl);
+}
+
+section:not(.p-grid) .p-post {
+	margin-bottom: var(--space-xs);
+}
+
+.p-category--container {
+	display: flex;
+	gap: var(--space-sm);
+	list-style: none;
+	margin-left: 0;
+	min-height: 30vh;
+}
+
+.p-error {
+	display: flex;
+	min-height: 55vh;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@media screen and (min-width: 1000px) {
+	.container {
+		margin-left: var(--header-size);
+	}
+
+	.p-body-container:has(.p-toc) {
+		display: grid;
+		grid-template-areas:
+				"toc header"
+				"toc content"
+				"toc footer"
+				"toc comment";
+		grid-template-columns: var(--width-toc) minmax(0, var(--width-layout));
+	}
+
+	.p-cover {
+		left: var(--header-size) !important;
+	}
+
+	.p-toc {
+		grid-area: toc;
+		animation: 0.15s 0.45s backwards macroAnimation;
+	}
+
+	.p-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 720px) {
+	.p-cover {
+		height: 16rem !important;
+	}
+
+	.p-body-container:has(.p-cover) {
+		margin-top: 10.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.p-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

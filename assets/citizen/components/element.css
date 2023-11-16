@@ -1,0 +1,291 @@
+.p-cover,
+.p-post--cover {
+	object-fit: cover;
+	filter: brightness(0.8);
+}
+
+.page-actions {
+	display: flex;
+	gap: var(--space-xxs);
+	margin: var(--space-xs) 0 0 -0.75rem;
+	font-size: 0.875rem;
+	font-weight: var(--font-weight-medium);
+}
+
+.p-post,
+.p-category--container li:hover {
+	background-color: var(--color-surface-3);
+}
+
+.page-navigator li,
+.p-category--container li {
+	background-color: var(--color-surface-2);
+	transition: background-color var(--transition-hover);
+}
+
+.p-body-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding-top: var(--space-xs);
+	margin-bottom: var(--space-xs);
+	gap: var(--space-md);
+	grid-area: header;
+	z-index: 2;
+	overflow: hidden;
+}
+
+.page-heading {
+	flex-grow: 1;
+	margin-left: 1px;
+}
+
+.firstHeading-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.p-description,
+.footer-tags > span {
+	display: block;
+	color: var(--color-base--subtle);
+}
+
+.firstHeading {
+	padding-top: 6px;
+	margin: 0 0 0 -2px;
+	overflow-wrap: break-word;
+	word-break: break-word;
+}
+
+.p-description {
+	margin-top: var(--space-xs);
+	font-size: 0.875rem;
+	line-height: var(--line-height-xs);
+}
+
+.p-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 25rem;
+	background-image: var(--cover-source);
+	background-position-x: center;
+	background-position-y: center;
+	background-size: cover;
+}
+
+/* 页面携带封面图时，为其内部的文本添加阴影效果，以增强可辨识性 */
+.p-body-container:has(.p-cover) .firstHeading,
+.p-body-container:has(.p-cover) .p-description,
+.p-post:has(.p-post--cover) .p-post--meta,
+.p-post:has(.p-post--cover) .p-post--title,
+.p-post:has(.p-post--cover) .p-snippet {
+	color: white;
+	text-shadow: var(--text-shadow);
+}
+
+/* 正文下方信息区域类椭圆分类链接 */
+
+.cat-links {
+	display: flex;
+	flex-wrap: wrap;
+	clear: both;
+	gap: var(--space-xl);
+	padding-bottom: var(--space-xxl);
+	border-bottom: 1px solid var(--border-color-base--darker);
+}
+
+.footer-tags {
+	font-size: 0;
+	margin: 0 auto;
+}
+
+.footer-tags > span {
+	font-size: 0.8125rem;
+	letter-spacing: 0.05em;
+	text-align: center;
+}
+
+.cat-links ul {
+	display: flex;
+	flex-wrap: wrap;
+	margin: var(--space-xs) 0 0 0;
+	font-size: 0.8125rem;
+	gap: var(--space-xs);
+	letter-spacing: 0;
+}
+
+.cat-links li {
+	display: block;
+}
+
+.cat-links li > a {
+	display: block;
+	padding: var(--space-xs) var(--space-md);
+	border: 1px solid var(--border-color-base--darker);
+	border-radius: var(--border-radius--pill);
+	color: var(--color-base--subtle);
+	transition: var(--transition-hover);
+	transition-property: background, color;
+	line-height: 1.6;
+}
+
+.cat-links li > a:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: var(--color-primary--hover);
+}
+
+.page-info {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 0.8125rem;
+	gap: var(--space-xl);
+	border-left: 4px solid var(--border-color-base--darker);
+	padding-left: var(--space-lg);
+}
+
+.page-info--item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+}
+
+.page-info--label {
+	color: var(--color-base--subtle);
+	letter-spacing: 0.05em;
+}
+
+.theme-switcher button {
+	color: #000;
+	padding-top: 8px;
+}
+
+.p-post {
+	overflow: hidden;
+	height: 14rem;
+	position: relative;
+	transition: background-color 120ms linear;
+}
+
+.p-post a,
+.p-post--cover,
+.p-post--text {
+	width: 100%;
+	height: 100%;
+}
+
+.p-post:hover {
+	background-color: var(--color-surface-4);
+}
+
+.p-post:has(.p-snippet) .p-post--cover {
+	filter: brightness(0.5);
+}
+
+.p-post:hover .p-post--cover {
+	filter: brightness(0.6);
+}
+
+.p-post--cover {
+	transition: filter 120ms linear;
+}
+
+.p-post--text,
+.p-post-title {
+	color: var(--color-base--emphasized);
+}
+
+.p-post--text {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: var(--space-xs) var(--space-md) var(--space-md);
+}
+
+.p-post:has(.p-post--cover) .p-post--text {
+	height: fit-content;
+	display: block;
+}
+
+.p-post--title {
+	font-size: 1.85em;
+	margin: var(--space-xs) 0;
+	font-weight: 500;
+	line-height: inherit;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 97.5%;
+}
+
+.p-post:has(.p-post--cover) .p-post--title {
+	font-size: 1.6em;
+}
+
+.p-post--meta {
+	font-size: 12px;
+	margin: 0;
+}
+
+.p-category--container li {
+	display: block;
+	position: relative;
+	height: fit-content;
+	border-radius: var(--border-radius--small);
+}
+
+.p-category--container li a {
+	display: block;
+	padding: var(--space-xs) var(--space-lg);
+	color: inherit;
+}
+
+/* 分页导航器 */
+
+.page-navigator {
+	display: flex;
+	column-gap: var(--space-xs);
+	list-style: none;
+	padding: 0;
+	height: fit-content;
+	grid-area: footer;
+}
+
+.page-navigator li:hover {
+	background-color: var(--color-surface-2--active);
+}
+
+li.current {
+	font-weight: 700;
+	background-color: var(--color-surface-3);
+}
+
+.page-navigator a,
+.page-navigator span {
+	display: block;
+	padding: var(--space-xs) var(--space-sm);
+	color: inherit;
+}
+
+.archive-title {
+	display: flex;
+	align-items: center;
+	font-size: var(--font-size-h1);
+}
+
+/* 使用 Material 图标的明暗主题切换按钮 */
+#theme-toggle .material-icons {
+	width: 1.5rem;
+	height: 1.75rem;
+}
+
+.p-error-text {
+	margin-left: 2px;
+}

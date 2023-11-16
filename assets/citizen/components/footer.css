@@ -1,0 +1,137 @@
+.p-footer {
+	position: relative;
+	padding: var(--space-xxl) var(--padding-page);
+	margin-top: var(--space-xxl);
+	margin-bottom: var(--header-size);
+	background-color: var(--color-surface-2);
+	clear: both;
+	color: var(--color-base--subtle);
+	direction: ltr;
+	font-size: 0.875rem;
+	z-index: 0;
+}
+
+.p-footer a {
+	font-weight: var(--font-weight-medium);
+}
+
+.p-footer ul {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+}
+
+.p-footer li {
+	list-style: none;
+}
+
+.p-footer a:hover {
+	text-decoration: underline;
+}
+
+.p-footer--container {
+	max-width: var(--width-layout--extended);
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.p-footer--bottom,
+.p-footer--content {
+	display: flex;
+	flex-wrap: wrap;
+	padding: var(--space-md) 0;
+	gap: var(--space-md);
+}
+
+.p-footer--bottom {
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid var(--border-color-base);
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.p-footer--siteInfo {
+	display: flex;
+	max-width: 90ch;
+	flex-direction: column;
+	gap: var(--space-xs);
+}
+
+.p-footer--siteInfo p {
+	margin: 0;
+	line-height: var(--line-height);
+}
+
+#footer-siteTitle {
+	font-size: 1.25rem;
+}
+
+#footer-places {
+	column-count: 2;
+	margin-left: 3.75rem;
+}
+
+#footer-places ul {
+	flex-direction: column;
+}
+
+#footer-places a {
+	display: block;
+	padding: var(--space-xs) var(--space-md);
+	text-decoration: none;
+	line-height: 1.3;
+}
+
+#footer-places a:hover {
+	background-color: var(--background-color-quiet--hover);
+}
+
+#footer-tagline {
+	padding: var(--space-xs) 0;
+}
+
+#footer-icons {
+	display: flex;
+}
+
+#footer-icons li {
+	display: flex;
+}
+
+#footer-icons a {
+	display: flex;
+	align-items: center;
+	opacity: var(--opacity-icon-base);
+	transition: opacity 250ms;
+}
+
+#footer-icons a:hover {
+	opacity: var(--opacity-icon-base--hover);
+}
+
+.p-footer a,
+#footer-siteTitle {
+	color: var(--color-base--emphasized);
+}
+
+#footer-icons li,
+#footer-icons ul {
+	gap: var(--space-md);
+}
+
+/* 此规则仅适用于纯白色页脚图标 */
+:root:not(.skin-dark) #footer-icons a {
+	filter: invert(1) hue-rotate(180deg);
+}
+
+@media screen and (min-width: 1000px) {
+	.p-footer {
+		margin-bottom: 0;
+		margin-left: var(--header-size);
+	}
+
+	#footer-siteTitle {
+		font-size: 2rem;
+	}
+}

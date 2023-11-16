@@ -1,0 +1,43 @@
+.toaster-wrapper {
+	width: 250px;
+	position: fixed;
+	transition: width 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.toaster-wrapper.bottom-right {
+	right: 20px;
+	bottom: 20px;
+}
+
+.toaster-wrapper:has(.toast-hide) {
+	width: 0;
+}
+
+.toast {
+	background-color: #111;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transform: translateY(-20px);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.toast.toast-show {
+	pointer-events: auto;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.toast.toast-hide {
+	transform: translateY(20px);
+	opacity: 0;
+}
+
+.toast-content {
+	color: white;
+	padding: 15px 20px;
+	font-size: 16px;
+	font-weight: 500;
+	text-wrap: nowrap;
+}

@@ -1,0 +1,111 @@
+.nowrap {
+	white-space: nowrap;
+}
+
+.p-button {
+	margin: 0;
+	border: 0;
+	padding: 5px 10px;
+	appearance: none;
+	background: 0 0;
+}
+
+.p-button a {
+	color: white;
+}
+
+.p-button--primary {
+	color: white;
+	border-color: var(--color-primary);
+	background-color: var(--color-primary);
+}
+
+.p-button--primary:hover {
+	border-color: var(--color-primary--hover);
+	background-color: var(--color-primary--hover);
+}
+
+.p-button--destructive {
+	color: white;
+	border-color: var(--color-destructive);
+	background-color: var(--color-destructive);
+}
+
+.p-button--destructive:hover {
+	border-color: var(--color-destructive--hover);
+	background-color: var(--color-destructive--hover);
+}
+
+.avatar {
+	max-width: fit-content;
+	border-radius: 50%;
+	transition: border-radius var(--transition-hover);
+}
+
+/* seamworks://vanilla/typecho/issues/avatar-not-follow-light-dark-changes */
+.avatar.ui-avatar {
+	filter: var(--filter-invert);
+}
+
+.indicators {
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	margin-left: 10px;
+	border-left: 1px solid var(--border-color-base);
+	font-size: 0.875rem;
+}
+
+.indicator {
+	filter: var(--filter-invert);
+}
+
+.ui-icon {
+	display: block;
+	width: var(--size-icon);
+	height: var(--size-icon);
+	contain: strict;
+}
+
+.fa {
+	font-family: "FontAwesome Pro";
+	font-size: 16px;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilities */
+
+/* 用于块级元素的 a 标签 */
+a.forElement {
+	display: block;
+	padding: 40px;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+/* 用于按钮元素的 a 标签 */
+a.button {
+	margin-top: -1px;
+	cursor: pointer;
+}
+
+div:has(.u-closeEntire) {
+	margin-bottom: 0;
+}
+
+/* 存在居中标题元素 u-centerTitle 时，对标题栏和描述文本的剧中处理 */
+body:has(.u-centerTitle) .firstHeading-container {
+	justify-content: center;
+}
+body:has(.u-centerTitle) .p-description {
+	text-align: center;
+}
+
+@media (hover: none) {
+	a, button, label {
+		touch-action: manipulation;
+	}
+}

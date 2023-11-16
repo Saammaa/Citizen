@@ -1,0 +1,88 @@
+/* 淡入 */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateX(3em);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* 上滑渐入 */
+@keyframes slideUp {
+	from {
+		transform: translatey(30px);
+		opacity: 0;
+	}
+	to {
+		transform: translatey(0);
+		opacity: 1;
+	}
+}
+
+.u-fadeUp {
+	animation: 0.4s cubic-bezier(0.4, 0, 0.2, 1) slideUp;
+	animation-fill-mode: backwards;
+}
+
+/* 标题最先淡入 */
+.p-body-header {
+	animation-delay: 0.1s;
+}
+
+/* 内容随后淡入 */
+.p-category-header ~ .p-grid,
+.p-content {
+	animation-delay: 0.2s;
+}
+
+/* 正文底部信息区域 */
+.p-body-footer {
+	animation-delay: 0.3s;
+}
+
+/* 封面与评论最后进入 */
+.p-cover,
+.p-comment {
+	animation-delay: 0.4s;
+}
+
+/* 右滑进入 */
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translate(-20px, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
+/* 目录从右侧淡入 */
+.citizen-toc--card {
+	animation: 0.4s cubic-bezier(0.4, 0, 0.2, 1) fadeInLeft;
+	animation-fill-mode: backwards;
+	animation-delay: 0.4s;
+}
+
+/* 封面图淡入，自动适应页面背景 */
+@keyframes coverFadeIn {
+	0%,
+	80% {
+		background-color: var(--color-surface-0);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
+/* 页面主体明暗过渡动画 */
+body,
+html,
+.p-footer,
+.p-header {
+	transition: var(--transition-background);
+}

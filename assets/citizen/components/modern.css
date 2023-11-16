@@ -1,0 +1,54 @@
+/* 适用于 Citizen 的 Seamworks 现代化网格布局 */
+
+.p-flexGrid {
+	display: flex;
+	justify-content: center;
+	gap: var(--space-xl);
+	flex-wrap: wrap;
+	margin-top: var(--space-xl);
+}
+
+.p-card--commentTheme {
+	background-color: var(--color-surface-2);
+	transition: background-color var(--transition-hover);
+}
+
+.p-card--commentTheme:hover {
+	background-color: var(--color-surface-3);
+}
+
+.p-card-quote {
+	font-size: 30px;
+	margin-top: 0;
+	text-align: center;
+}
+
+.p-card-extend {
+	display: flex;
+	column-gap: var(--space-lg);
+}
+
+.p-card-extend img {
+	width: 48px;
+	height: auto;
+	border-radius: 50%;
+	margin-top: 2px;
+}
+
+.p-card--info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	row-gap: var(--space-xxs);
+}
+
+.p-card--info span:first-child {
+	font-weight: 700;
+	font-size: 16px;
+	color: var(--color-base--emphasized);
+}
+
+.p-card--info span:last-child {
+	font-size: 12px;
+	color: var(--color-base--subtle);
+}

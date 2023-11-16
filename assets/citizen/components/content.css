@@ -1,0 +1,418 @@
+/* 正文内容 */
+.text-tiny	{ font-size: 0.7em	}
+.text-small	{ font-size: 0.85em	}
+.text-big	{ font-size: 1.4em	}
+.text-huge	{ font-size: 1.8em	}
+
+/* 强调型文本 */
+span.boxed {
+	border: 2px solid red;
+}
+
+/* 黑幕 */
+span.spoiler {
+	background-color: currentColor;
+	transition: background-color 80ms linear;
+}
+span.spoiler:hover {
+	background-color: transparent;
+}
+
+/* 引用 */
+.p-content blockquote {
+	font-style: italic;
+	margin-left: 0;
+	margin-right: 0;
+	overflow: hidden;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	border-left: 5px solid var(--border-color-base--darker);
+}
+
+/* 文艺型引用 */
+blockquote.well-quote {
+	z-index: 1;
+	position: relative;
+	font-style: italic;
+	padding: 0;
+	margin: var(--space-xxl);
+	border: 0;
+	overflow: visible;
+}
+
+blockquote.well-quote::before {
+	content: "\201c";
+	position: absolute;
+	top: -1.25rem;
+	left: -7.75rem;
+	height: 5rem;
+	font-size: 12em;
+	font-family: inherit;
+	font-style: normal;
+	display: flex;
+	padding-top: 5.25rem;
+	width: 10rem;
+	color: var(--border-color-base--darker);
+	z-index: -1;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+}
+
+blockquote.well-quote p {
+	font-size: 2em;
+}
+
+/* 适配 CKEditor 5（包含 HTML5） */
+
+.p-content figure {
+	margin: var(--space-lg) 0;
+}
+
+.p-content .image {
+	clear: both;
+	display: table;
+	margin: 0.9em auto;
+	min-width: 50px;
+	text-align: center;
+}
+
+.p-content .image img {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+	min-width: 100%;
+}
+
+.p-content .image.image_resized {
+	box-sizing: border-box;
+	display: block;
+	max-width: 100%;
+}
+
+.p-content .image-style-align-left {
+	float: left;
+	margin-right: var(--space-xl);
+}
+
+.p-content .image > figcaption {
+	display: block;
+	caption-side: bottom;
+	font-size: 0.75em;
+	color: var(--color-base--subtle);
+	outline-offset: -1px;
+	padding: 0.6em;
+	word-break: break-word;
+}
+
+.p-content .table {
+	display: table;
+	margin: 0.9em auto;
+}
+
+.p-content .table table {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-spacing: 0;
+	border: 1px double var(--border-color-base--darker);
+	border-collapse: collapse;
+}
+
+.p-content .table td,
+.p-content .table th {
+	text-align: left;
+	min-width: 2em;
+	padding: 0.5em;
+	overflow-wrap: break-word;
+	position: relative;
+	border: 1px solid var(--border-color-base--darker);
+	transition: background-color var(--transition-hover);
+}
+
+.p-content .table td:hover {
+	background-color: var(--background-color-quiet--hover);
+}
+
+.p-content .table table th {
+	font-weight: var(--font-weight-bold);
+	background: rgba(0, 0, 0, 0.05);
+}
+
+/* 此表格样式与纯英文-数字内容的表格兼容较好 */
+.p-content figure.table-divided {
+	margin: 1.5rem 0;
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 0.95em;
+}
+
+.p-content img.lazy:not(.lazy-loaded) {
+	max-width: 100px;
+}
+
+/* 代码块 */
+pre,
+:not(pre) > code {
+	color: var(--color-base--emphasized);
+	background-color: var(--color-surface-2);
+	border: 1px solid var(--border-color-base);
+	transition: var(--transition-background);
+}
+
+:not(pre) > code {
+	padding: 2px 4px;
+	border-radius: var(--border-radius--small);
+	font-family: var(--font-family-mono);
+	font-size: 0.875em;
+}
+
+/* 荧光笔 */
+
+.p-content .marker-green	{ background-color: var(--highlight-marker-green)	}
+.p-content .marker-yellow	{ background-color: var(--highlight-marker-yellow)	}
+.p-content .marker-blue		{ background-color: var(--highlight-marker-blue)	}
+
+.p-content .marker-pink {
+	color: white;
+	background-color: var(--highlight-marker-pink);
+}
+.p-content .pen-red {
+	background-color: transparent;
+	color: var(--highlight-pen-red);
+}
+.p-content .pen-green {
+	background-color: transparent;
+	color: var(--highlight-pen-green);
+}
+
+/* 待办列表 */
+
+.p-content .todo-list {
+	--todo-list-checkmark-size: 16px;
+	list-style: none;
+	padding-left: 0.45rem;
+}
+
+.p-content .todo-list li {
+	margin-bottom: 5px;
+	position: relative;
+}
+
+.p-content .todo-list .todo-list__label > input {
+	-webkit-appearance: none;
+	border: 0;
+	display: inline-block;
+	height: var(--todo-list-checkmark-size);
+	left: -25px;
+	margin-left: 0;
+	margin-right: -15px;
+	position: relative;
+	right: 0;
+	vertical-align: middle;
+	width: var(--todo-list-checkmark-size);
+	transition: var(--transition-background);
+}
+
+.p-content .todo-list .todo-list__label > input:before {
+	border: 1px solid var(--border-color-base--darker);
+	border-radius: 2px;
+	box-sizing: border-box;
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.p-content .todo-list .todo-list__label > input:after {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 0 calc(var(--todo-list-checkmark-size) / 8)
+	calc(var(--todo-list-checkmark-size) / 8) 0;
+	box-sizing: content-box;
+	content: "";
+	display: block;
+	height: calc(var(--todo-list-checkmark-size) / 2.6);
+	left: calc(var(--todo-list-checkmark-size) / 2.75);
+	pointer-events: none;
+	position: absolute;
+	top: calc(var(--todo-list-checkmark-size) / 5.75);
+	transform: rotate(45deg);
+	width: calc(var(--todo-list-checkmark-size) / 5.3);
+}
+
+.p-content .todo-list .todo-list__label__description {
+	vertical-align: middle;
+}
+
+.p-content .todo-list .todo-list__label > input[checked]:before {
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+}
+
+.p-content .todo-list .todo-list__label > input[checked]:after {
+	border-color: white;
+}
+
+/* 彩色引用句卡片，支持插入附加 cite 标签 */
+
+.p-content .quote-card {
+	padding:var(--space-lg);
+	padding-left: 3.25rem;
+	box-sizing: border-box;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	position: relative;
+	overflow: hidden;
+	min-height: 120px;
+	border: none;
+	margin: 1.75rem auto;
+	width: 75%;
+	border-radius: var(--border-radius--medium);
+}
+
+.p-content .quote-card p {
+	font-size: 1.5rem;
+	margin: 0;
+	max-width: 85%;
+}
+
+.p-content .quote-card:before {
+	font-family: inherit;
+	content: "“";
+	position: absolute;
+	top: -0.75rem;
+	left: -2.5rem;
+	font-size: 5em;
+	color: rgba(235, 235, 235, 0.5);
+	font-weight: normal;
+}
+
+.p-content .quote-card:after {
+	font-family: inherit;
+	content: "”";
+	position: absolute;
+	bottom: -6.75rem;
+	line-height: 100px;
+	right: -10rem;
+	font-size: 25em;
+	color: rgba(235, 235, 235, 0.5);
+	font-weight: normal;
+}
+
+.p-content .quote-card.red {
+	color: white;
+	background-color: rgb(210, 45, 45);
+}
+
+.p-content .quote-card.blue {
+	color: white;
+	background-color: rgba(50, 60, 160);
+}
+
+.p-content .quote-card cite {
+	font-size: 0.75em;
+	opacity: 0.8;
+}
+
+/* Jquery Fancybox 改动 */
+
+.fancybox-progress {
+	background: var(--color-primary);
+}
+
+.fancybox-content {
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.fancybox-container {
+	--fancybox-thumb-size: 130px;
+}
+
+@media (max-width: 750px) {
+	.fancybox-container {
+		--fancybox-thumb-size: 65px;
+	}
+}
+
+.fancybox-thumbs__list a {
+	width: var(--fancybox-thumb-size);
+	height: var(--fancybox-thumb-size);
+}
+
+.fancybox-thumbs__list a::before {
+	border: 2px solid #eee;
+	background: radial-gradient(transparent, rgba(0, 0, 0, 0.75));
+}
+
+.fancybox-show-thumbs .fancybox-inner {
+	right: 0;
+	bottom: var(--fancybox-thumb-size);
+	margin-bottom: 5px;
+}
+
+.fancybox-thumbs {
+	top: auto;
+	left: 0;
+	width: auto;
+	height: auto;
+	padding: 0 10px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.p-content a:where(:not(.button)) {
+	text-decoration-color: currentColor;
+	text-decoration-thickness: 2px;
+	overflow-wrap: break-word;
+}
+
+@supports (box-shadow: none) {
+	.p-content a:where(:not(.button)) {
+		transition: box-shadow 0.3s cubic-bezier(0.55, 0.085, 0, 0.99);
+		text-decoration: none;
+		box-shadow: inset 0 -2px 0 0 var(--color-primary);
+	}
+
+	.p-content a:where(:not(.button)):hover {
+		color: var(--color-base--emphasized);
+		box-shadow: inset 0 -2em 0 0 hsl(var(--color-primary--h), var(--color-primary--s), var(--color-primary--l), 0.2);
+		text-decoration-color: var(--color-primary--hover);
+	}
+}
+
+.p-body-container:has(.protected) .firstHeading {
+	opacity: 0.75;
+	color: var(--color-base--subtle);
+	text-decoration: line-through;
+}
+
+.p-protected--title {
+	font-size: 2.5em;
+	margin-left: -5px;
+}
+
+.protected p:not(.word) {
+	display: flex;
+	align-items: center;
+}
+
+.protected .text {
+	font-size: 1.75em;
+	border: 1px solid var(--border-color-base--darker);
+}
+
+.protected .submit {
+	color: white;
+	height: 2.25rem;
+	margin-left: var(--space-md);
+	padding: var(--space-xxs) var(--space-md);
+	background-color: var(--color-primary);
+	border-width: 0;
+	border-radius: var(--border-radius--small);
+	transition: background-color var(--transition-hover);
+}
+
+.protected .submit:hover {
+	background-color: var(--color-primary--hover);
+}

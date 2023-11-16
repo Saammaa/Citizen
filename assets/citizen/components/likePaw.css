@@ -1,0 +1,359 @@
+.p-like--pawButton {
+    --background: var(--color-surface-0);
+    --background-active: #fee8f4;
+    --border: var(--border-color-base);
+    --border-active: var(--border-color-base--darker);
+    --text: var(--color-base);
+    --number: var(--color-base--subtle);
+    --number-active: var(--color-base--emphasized);
+    --heart-background: var(--color-surface-0);
+    --heart-background-active: #fea5d7;
+    --heart-border: var(--border-color-base);
+    --heart-border-active: var(--border-color-base--darker);
+    --heart-shadow-light: #fee0f2;
+    --heart-shadow-dark: #ea5daf;
+    --paw-background: var(--color-surface-0);
+    --paw-border: #201e1b;
+    --paw-shadow: #eeeded;
+    --paw-inner: var(--heart-background-active);
+    --paw-shadow-light: var(--heart-shadow-light);
+    --paw-shadow-dark: var(--heart-shadow-dark);
+    --paw-clap-background: #fef0a5;
+    --paw-clap-border: var(--paw-border);
+    --paw-clap-shadow: #fed75c;
+    --circle: #df3dce;
+    --circle-line: #000;
+
+    display: inline-flex;
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    line-height: 1;
+    padding: var(--space-xs) var(--space-md);
+}
+
+.p-like--pawButton:before {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: var(--border-radius--medium);
+    transition: var(--transition-background);
+    background-color: var(--background);
+    border: 2px solid var(--border-color-base);
+}
+
+.p-like--text {
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 3;
+    margin-right: 8px;
+    transition: width 0.25s;
+    width: var(--w, 60px);
+}
+
+.p-like--text img {
+    --background: var(--heart-background);
+    --border: var(--heart-border);
+    --shadow-light: transparent;
+    --shadow-dark: transparent;
+    width: 20px;
+    height: 20px;
+    -webkit-transform: translateX(var(--x));
+    transform: translateX(var(--x));
+}
+
+.p-like--text span {
+    display: block;
+    position: absolute;
+    left: 1.75rem;
+    top: 0.1rem;
+    transform: translateY(var(--y, 0));
+    color: var(--color-base);
+}
+
+.p-like--pawButton .p-like--text img,
+.p-like--pawButton .p-like--text span {
+    transition: transform 0.15s ease-out, opacity 0.2s,
+    -webkit-transform 0.15s ease-out;
+    opacity: var(--o, 1);
+}
+
+.p-like--pawButton > span {
+    display: block;
+    position: relative;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    z-index: 2;
+    color: var(--color-base--subtle);
+    line-height: 1.25;
+}
+
+.p-like--paws {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    z-index: 2;
+}
+
+.p-like--paws img {
+    position: absolute;
+    bottom: 1px;
+    transition: transform 0.3s ease-out, opacity 0.2s,
+    -webkit-transform 0.3s ease-out;
+    opacity: var(--o, 0);
+    -webkit-transform: translate(var(--x, 0), var(--y, 0));
+    transform: translate(var(--x, 0), var(--y, 0));
+}
+
+.p-like--paws img.p-like--paw {
+    --x: -24px;
+    width: 30px;
+    height: 32px;
+    left: 32px;
+}
+
+.p-like--paws .p-like--effect {
+    left: 26px;
+    top: 12px;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+}
+
+.p-like--paws .p-like--effect:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--circle);
+    -webkit-transform: scale(var(--s, 0));
+    transform: scale(var(--s, 0));
+    opacity: var(--o, 1);
+    transition: transform 0.15s 0.16s, opacity 0.2s linear 0.25s,
+    -webkit-transform 0.15s 0.16s;
+}
+
+.p-like--paws .p-like--effect div,
+.p-like--paws .p-like--effect div:after,
+.p-like--paws .p-like--effect div:before {
+    opacity: var(--o, 1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    transition: transform 0.12s 0.17s, opacity 0.18s linear 0.21s,
+    -webkit-transform 0.12s 0.17s;
+}
+
+.p-like--paws .p-like--effect div:after,
+.p-like--paws .p-like--effect div:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    -webkit-transform: translate(var(--x, -22px), var(--y, 4px))
+    rotate(var(--r, -45deg)) scaleX(0.8) scaleY(var(--s, 0));
+    transform: translate(var(--x, -22px), var(--y, 4px)) rotate(var(--r, -45deg))
+    scaleX(0.8) scaleY(var(--s, 0));
+}
+
+.p-like--paws .p-like--effect div:after {
+    --x: 22px;
+    --r: 45deg;
+}
+
+.p-like--paws img.p-like--pawClap {
+    --x: 16px;
+    --y: 32px;
+    --o: 1;
+
+    width: 32px;
+    height: 30px;
+    left: 32px;
+}
+
+.p-like--pawButton:not(.confetti):hover .p-like--text {
+    --o: 0;
+    --x: 12px;
+    --y: 8px;
+}
+
+.p-like--pawButton:not(.confetti):hover img.p-like--paw {
+    --o: 1;
+    --x: 0;
+}
+
+.p-like--pawButton i {
+    position: absolute;
+    display: block;
+    width: 4px;
+    height: 4px;
+    top: 50%;
+    left: 50%;
+    margin: -2px 0 0 -2px;
+    opacity: var(--o, 0);
+    background: var(--b);
+    -webkit-transform: translate(var(--x), var(--y)) scale(var(--s, 1));
+    transform: translate(var(--x), var(--y)) scale(var(--s, 1));
+}
+
+.p-like--pawButton.animation .p-like--text {
+    --o: 0;
+}
+
+.p-like--pawButton.animation .p-like--text svg {
+    --background: var(--heart-background-active);
+    --border: var(--heart-border-active);
+    --shadow-light: var(--heart-shadow-light);
+    --shadow-dark: var(--heart-shadow-dark);
+}
+
+.p-like--pawButton.animation img.p-like--paw {
+    --x: 0;
+    --o: 1;
+    transition-delay: 0s;
+    -webkit-animation: 0.45s forwards paw;
+    animation: 0.45s forwards paw;
+}
+
+.p-like--pawButton.animation img.p-like--pawClap {
+    -webkit-animation: 0.5s ease-in forwards paw-clap;
+    animation: 0.5s ease-in forwards paw-clap;
+}
+
+.p-like--pawButton.animation .p-like--effect {
+    --s: 1;
+    --o: 0;
+}
+
+.p-like--pawButton.confetti i {
+    -webkit-animation: 0.6s ease-out forwards confetti;
+    animation: 0.6s ease-out forwards confetti;
+}
+
+.p-like--pawButton.confetti img.p-like--paw {
+    --o: 0;
+    transition: opacity 0.15s linear 0.2s;
+}
+
+.p-like--pawButton.liked {
+    --background: var(--color-primary--active);
+    --border: var(--border-active);
+}
+
+.p-like--pawButton.liked .p-like--text {
+    --w: 21px;
+}
+
+.p-like--pawButton.liked .p-like--text img {
+    --o: 1;
+    filter: saturate(20) hue-rotate(45deg);
+}
+
+.p-like--pawButton.liked > span {
+    color: hsl(210, 15%, 95%, 1);
+}
+
+@-webkit-keyframes confetti {
+    from {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes confetti {
+    from {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes paw {
+    0% {
+        -webkit-transform: translateX(var(--x));
+        transform: translateX(var(--x));
+    }
+    35% {
+        -webkit-transform: translateX(-16px);
+        transform: translateX(-16px);
+    }
+    55%,
+    70% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(-12px);
+        transform: translateX(-12px);
+    }
+}
+
+@keyframes paw {
+    0% {
+        -webkit-transform: translateX(var(--x));
+        transform: translateX(var(--x));
+    }
+    35% {
+        -webkit-transform: translateX(-16px);
+        transform: translateX(-16px);
+    }
+    55%,
+    70% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(-12px);
+        transform: translateX(-12px);
+    }
+}
+
+@-webkit-keyframes paw-clap {
+    50%,
+    70% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes paw-clap {
+    50%,
+    70% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.p-like--pawButton.noEffect .p-like--effect,
+.p-like--pawButton.noEffect .p-like--pawClap {
+    display: none;
+}
+
+.p-like--pawButton.noEffect {
+    pointer-events: none;
+}
+
+/* bodyContainer Hack */
+
+.p-body-container:has(.p-cover) .p-like--pawButton {
+    opacity: 0.45;
+    transition: opacity var(--transition-hover);
+}
+.p-body-container:has(.p-cover) .p-like--pawButton:hover {
+    opacity: 1;
+}
