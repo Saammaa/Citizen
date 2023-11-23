@@ -9,7 +9,7 @@ function themeConfig($form) {
 		'Short',
 		_t('摘要长度'),
 		_t('
-    <p class="description">该设置相会影响首页的文章列表内的文章内容摘要如何显示。</p>
+    <p class="description">该设置会影响首页的文章列表内的文章内容摘要如何显示。</p>
     <p class="description">使用手动截取时，系统将查找 <code>&lt;!--more--></code> 标签，并截获该标签前方的所有内容。</p>
     <p class="description">使用固定截取时，系统将自动抽取前 200 个字符。</p>
     <p class="description">若选择不截取，则文章只会显示其标题和描述。</p>')
