@@ -7,6 +7,9 @@
  * @see https://github.com/injahow/meting-api
  */
 
+// 该文件应且只应输出 ERROR 层信息
+error_reporting(1);
+
 define('API_URI', api_uri());
 
 const CACHE = true;
