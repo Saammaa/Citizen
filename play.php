@@ -11,7 +11,10 @@ define('API_URI', api_uri());
 
 const CACHE = true;
 const CACHE_TIME = 86400;
-const APCU_CACHE = true;
+
+// i.I@a12fb2b6 在未启用 APCU 扩展的 PHP 环境中无法正常工作
+// 已从 true 转为 false，若需要使用 APCU，请手动切换为 true
+const APCU_CACHE = false;
 
 $type = $_GET['type'];
 $id = $_GET['id'];
