@@ -18,8 +18,8 @@ class Citizen {
 			'https://fonts.googleapis.com/css?family=Material+Icons:FILL@1|Noto+Serif+SC:500&display=swap',
 			'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/fancybox/3.5.7/jquery.fancybox.min.css',
 			'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/tocbot/4.18.2/tocbot.min.css',
-			'https://registry.npmmirror.com/seamworks-statics/latest/files/citizen/prism.css',
-			'https://registry.npmmirror.com/seamworks-statics/latest/files/citizen/render.css'
+			Helper::options()->themeUrl.'/assets/prism/prism.css',
+			Helper::options()->themeUrl.'/assets/citizen/render.css'
 		);
 
 		foreach ($src_link as $value) echo '<link rel="stylesheet" href="' . $value . '" />';
@@ -35,9 +35,9 @@ class Citizen {
 			'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js',
 			'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/tocbot/4.18.2/tocbot.min.js',
 			'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/howler/2.2.3/howler.core.min.js',
-			'https://registry.npmmirror.com/seamworks-statics/latest/files/citizen/prism.js',
-			'https://registry.npmmirror.com/seamworks-statics/latest/files/citizen/ajaxComment.min.js',
-			'https://registry.npmmirror.com/seamworks-statics/latest/files/citizen/core-compiled.js',
+			Helper::options()->themeUrl.'/assets/prism/prism.js',
+			Helper::options()->themeUrl.'/assets/citizen/seamworks/ajaxComment.min.js',
+			Helper::options()->themeUrl.'/assets/citizen/core-compiled.js',
 		);
 
 		foreach ($src_link as $value) echo '<script src="' . $value . '"></script>';
